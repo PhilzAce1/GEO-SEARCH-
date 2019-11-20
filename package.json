@@ -38,5 +38,13 @@
     "gulp-jshint": "^2.1.0",
     "gulp-sass": "^4.0.2",
     "jshint": "^2.10.2"
+  },
+  "devDependencies": {
+    "eslint": "^6.1.0",
+    "eslint-config-airbnb-base": "^14.0.0",
+    "eslint-config-prettier": "^6.7.0",
+    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-prettier": "^3.1.1",
+    "prettier": "^1.19.1"
   }
 }
