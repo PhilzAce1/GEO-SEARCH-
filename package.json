@@ -1,0 +1,42 @@
+{
+  "name": "geo-search",
+  "version": "1.0.0",
+  "description": "Geo-Search is a tool that allows people to search for places and extract information such as",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PhilzAce1/GEO-SEARCH-.git"
+  },
+  "keywords": [
+    "geo",
+    "location",
+    "finder",
+    "map",
+    "google",
+    "maps",
+    "api",
+    "weather",
+    "places",
+    "geocode"
+  ],
+  "author": "Akuagwu Philemon",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/PhilzAce1/GEO-SEARCH-/issues"
+  },
+  "homepage": "https://github.com/PhilzAce1/GEO-SEARCH-#readme",
+  "dependencies": {
+    "@babel/core": "^7.6.4",
+    "@babel/preset-env": "^7.6.3",
+    "babel-polyfill": "^6.26.0",
+    "browser-sync": "^2.26.7",
+    "gulp": "^4.0.2",
+    "gulp-babel": "^8.0.0",
+    "gulp-jshint": "^2.1.0",
+    "gulp-sass": "^4.0.2",
+    "jshint": "^2.10.2"
+  }
+}
