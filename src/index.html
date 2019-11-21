@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="css/main400.css" />
     <link rel="stylesheet" href="css/loader.css">
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
   </head>
   <body>
     <div id="loaders">
@@ -25,16 +26,10 @@
               </div>
         </div>
         <div id="iframe">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2785.1844078498925!2d-122.33382808436996!3d47.59515177918386!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x54906aa3b9f1182b%3A0xa636cd513bba22dc!2sCenturyLink%20Field!5e1!3m2!1sen!2sng!4v1574348726835!5m2!1sen!2sng" width="1024px" height="760px" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
-          <!-- <iframe src="https://www.google.com/maps/@?api=1&map_action=pano&viewpoint=48.857832,2.295226&heading=-45&pitch=38&fov=80" frameborder="0"></iframe> -->
-          <!-- <iframe id="if1" width="100%" height="254" style="visibility:visible" src="http://www.google.com/custom?q=&btnG=Search"></iframe> -->
         </div>
     <div><button id="close">close</button></div>
     <div id="map"></div>
-    <!-- class="container"  -->
     <div class="container">
-      <!-- <div class="location_indicator></div> -->
-
       <div class="display">
         <div class="brand">GEO SEARCH</div>
         <div class="response">
@@ -70,7 +65,9 @@
                 id="zipit"
                 placeholder="search for your city"
               />
-              <button id="search-btn" disabled>Search</button>
+              <input type="hidden" name="lat">
+                    <input type="hidden" name="long">
+              <button id="search-btn" disabled onclick="initMap()">Search</button>
             </div>
             <br />
             <div class="radio">
@@ -123,8 +120,6 @@
                 Weather Condition :<span id="handleWeather"></span>
               </p>
             </div>
-            <!-- <div><button class="navigation-link btn" id="button">Convert To Celcius : </button></div> -->
-            <!-- <div><button class="navigation-link btn" id="fer">Convert To Celcius :</button></div>                          -->
           </div>
         </div>
         <hr />
@@ -142,17 +137,13 @@
         </div>
       </div>
     </div>
-    <!-- <script src="js/Images.js"></script> -->
     <script src="js/app.js"></script>
     <script src="js/button.js"></script>
-    <script src="js/maps.js"></script>
-    <!-- <script> function autoCom(){let input = document.getElementById('zipit');let autocomplete = new google.maps.places.Autocomplete('input')}</script> -->
-    <!-- <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAtOJfpJ9LaRu4JG-S4-byHD3_fKzgpJYA&libraries=places&callback=autoCom"></script> -->
-   
+    <script src="js/maps.js"> </script>
     <script
       async
       defer
-      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDd1vX46rLVJsuE4NUmZcgp7_m34wwMgHA&callback=initMap"
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDd1vX46rLVJsuE4NUmZcgp7_m34wwMgHA&libraries=places"
     ></script>
   </body>
 </html>

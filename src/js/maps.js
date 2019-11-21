@@ -1,8 +1,10 @@
 var iconBase = 'https://maps.google.com/mapfiles/kml/shapes/';
 function initMap() {
   var searched;
-  var map;
-  var location = 'Lagos';
+  var lati;
+  var lngi;
+
+  var location = document.getElementById('zipit').value;
   axios
     .get('https://maps.googleapis.com/maps/api/geocode/json', {
       params: {
@@ -11,54 +13,37 @@ function initMap() {
       }
     })
     .then(res => {
-      searched = {
-        lat: parseFloat(res.data.results[0].geometry.location.lat),
-        lng: parseFloat(res.data.results[0].geometry.location.lng)
-      };
-      //   lat = parseFloat(res.data.results[0].geometry.location.lat);
-      //   lng = parseFloat(res.data.results[0].geometry.location.lat);
-
-      console.log(searched);
+      return maps(res);
     })
     .catch(err => console.error(err));
-  // map options
-  var options = {
-    zoom: 8,
-    center: searched
+  const maps = searchedItem => {
+    lati = new Number(
+      searchedItem.data.results[0].geometry.location.lat
+    ).toFixed(3);
+    lngi = new Number(
+      searchedItem.data.results[0].geometry.location.lng
+    ).toFixed(3);
+    //
+    // map options
+    var options = {
+      zoom: 16,
+      center: {
+        lat: parseFloat(lati),
+        lng: parseFloat(lngi)
+      }
+    };
+    console.log(options);
+    var map = new google.maps.Map(document.getElementById('zipit'), options);
+    var marker = new google.maps.Marker({
+      position: options.center,
+      icon: iconBase + 'library_maps.png',
+      map: map
+    });
   };
-  map = new google.maps.Map(document.getElementById('map'), options);
-  //   var marker = new google.maps.Marker({
-  //     position: searched,
-  //     // icon: iconBase + 'info-i_maps.png',
-  //     map: map
-  //   });
-  //   google.maps.event.addListener(map, 'click', function(event) {
-  //     addMarker({ coords: event.latLng });
-  //     // console.log(event.latLng)
-  //   });
-  //   addMarker({
-  //     coords: { lat: lat, lng: lng },
-  //     iconImage:
-  //       'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png'
-  //     // content:'<h1>something</h1>'
-  //   });
-  // //   // Add Marker
-  //   function addMarker(props) {
-  //     var marker = new google.maps.Marker({
-  //       position: props.coords,
-  //       map: map
-  //       //  icon:props.iconImage
-  //     });
-  //     if (props.iconImage) {
-  //       marker.setIcon(props.iconImage);
-  //     }
-  //     if (props.content) {
-  //       var infoWindow = new google.maps.InfoWindow({
-  //         content: props.content
-  //       });
-  //       marker.addListener('click', () => {
-  //         infoWindow.open(map, marker);
-  //       });
-  //     }
-  //   }
 }
+
+document.getElementById('zipit').addEventListener('input', () => {
+  var input = document.getElementById('zipit');
+  var autocomplete = new google.maps.places.Autocomplete(input);
+  var searchBox = new google.maps.places.SearchBox(input);
+});
