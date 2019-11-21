@@ -1,3 +1,6 @@
+window.onload=()=>{
+    document.getElementById('loaders').style.display = 'none'
+}
 let apiId =  '5a929acdfbcb904243f282fc940e1200';
 let units;
 let lng;

@@ -2,6 +2,22 @@
   --bgi: url('../image/default.jpg');
 }
 
+#loaders {
+  position: absolute; /* Stay in place */
+  padding-top: 0px; /* Location of the box */
+  margin: auto;
+  top: 0;
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0, 0, 0); /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+  border-radius: 20px;
+  width: 100vw;
+  height: 100vh;
+  box-shadow: 10px 10px 10px 10px rgba(0, 0, 0, 0.301);
+  z-index: 202; /* Sit on top */
+  background: black;
+}
+
 #map {
   display: none;
   position: absolute; /* Stay in place */
@@ -53,7 +69,7 @@ a {
   color: violet;
 }
 body {
-  z-index: 0;
+  z-index: 3;
   background-image: var(--bgi);
   background-repeat: no-repeat;
   background-size: cover;
@@ -63,6 +79,7 @@ body {
   align-content: center;
   align-items: center;
   backdrop-filter: blur(50px);
+  background: red;
 }
 .container {
   z-index: 0;
