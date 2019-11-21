@@ -69,9 +69,8 @@ a {
   color: violet;
 }
 body {
-  z-index: 3;
+  z-index: 0;
   background-image: var(--bgi);
-  background-repeat: no-repeat;
   background-size: cover;
   display: flex;
   flex-direction: column;
@@ -79,7 +78,6 @@ body {
   align-content: center;
   align-items: center;
   backdrop-filter: blur(50px);
-  background: red;
 }
 .container {
   z-index: 0;
