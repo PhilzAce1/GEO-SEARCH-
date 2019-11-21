@@ -55,6 +55,8 @@ a {
 body {
   z-index: 0;
   background-image: var(--bgi);
+  background-repeat: no-repeat;
+  background-size: cover;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -64,9 +66,10 @@ body {
 }
 .container {
   z-index: 0;
-
   margin: 10vh;
   background-image: var(--bgi);
+  background-repeat: no-repeat;
+  background-size: cover;
   width: 80vw;
   height: 100vh;
   display: flex;
