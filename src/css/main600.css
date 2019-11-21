@@ -3,6 +3,22 @@
     --bgi: url('../image/default.jpg');
   }
 
+  #iframe {
+    display: none;
+    position: absolute; /* Stay in place */
+    z-index: 200; /* Sit on top */
+    padding-top: 0px; /* Location of the box */
+    margin: auto;
+    top: 0;
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0, 0, 0); /* Fallback color */
+    background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+    border-radius: 20px;
+    width: 100vw;
+    height: 100vh;
+    align-self: center;
+    box-shadow: 10px 10px 10px 10px rgba(0, 0, 0, 0.301);
+  }
   #map {
     display: none;
     position: absolute; /* Stay in place */

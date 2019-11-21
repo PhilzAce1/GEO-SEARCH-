@@ -1,4 +1,23 @@
 @media only screen and (max-width: 400px) {
+  #iframe {
+    display: none;
+    position: absolute; /* Stay in place */
+    z-index: 200; /* Sit on top */
+    padding-top: 0px; /* Location of the box */
+    margin: auto;
+    top: 0;
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0, 0, 0); /* Fallback color */
+    background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+    border-radius: 20px;
+    width: 100vw;
+    height: 100vh;
+    align-self: center;
+    box-shadow: 10px 10px 10px 10px rgba(0, 0, 0, 0.301);
+  }
+  #zipit {
+    width: 80vw;
+  }
   #map {
     display: none;
     position: absolute; /* Stay in place */
@@ -158,7 +177,7 @@
   }
   @-webkit-keyframes example {
     from {
-      width: 25vw;
+      width: 3vw;
     }
     to {
       width: 20vw;
@@ -167,10 +186,10 @@
 
   @keyframes example {
     from {
-      width: 15vw;
+      width: 50vw;
     }
     to {
-      width: 20vw;
+      width: 70vw;
       box-shadow: 0px 0px 30px 0px black;
     }
   }
@@ -184,10 +203,10 @@
   }
   @-webkit-keyframes exampl {
     from {
-      width: 20vw;
+      width: 70vw;
     }
     to {
-      width: 15vw;
+      width: 50vw;
     }
   }
 
