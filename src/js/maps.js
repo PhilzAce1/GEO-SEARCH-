@@ -28,8 +28,8 @@ function initMap() {
     ).toFixed(3);
     //
     // map options
-    document.getElementById('postal').innerHTML =
-      searchedItem.data.results[0].address_components[3].long_name;
+    // document.getElementById('postal').innerHTML =
+    //   searchedItem.data.results[0].address_components[3].long_name;
     var options = {
       zoom: 16,
       center: {
@@ -63,8 +63,6 @@ function getImage(searchedItem) {
       searchedItem.data.results[0].geometry.location.lng
     )}&fov=80&heading=70&pitch=0&key=AIzaSyDd1vX46rLVJsuE4NUmZcgp7_m34wwMgHA`
   );
-  console.log(searchedItem.data.results[0].geometry.location.lat);
-  // https://maps.googleapis.com/maps/api/streetview?size=400x400&location=4.5763831,-122.4211769&fov=80&heading=70&pitch=0&key=AIzaSyDd1vX46rLVJsuE4NUmZcgp7_m34wwMgHA
 }
 document.getElementById('openImg').addEventListener('click', () => {
   document.getElementById('image').style.visibility = 'visible';
