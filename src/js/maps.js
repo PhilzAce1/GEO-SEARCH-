@@ -13,8 +13,9 @@ function initMap() {
       }
     })
     .then(res => {
-      return maps(res);
-      // return console.log(res.data.results[0].address_components);
+      console.log(res);
+      getImage(res);
+      maps(res);
     })
     .catch(err => console.error(err));
   const maps = searchedItem => {
@@ -49,4 +50,24 @@ document.getElementById('zipit').addEventListener('input', () => {
   var input = document.getElementById('zipit');
   var autocomplete = new google.maps.places.Autocomplete(input);
   var searchBox = new google.maps.places.SearchBox(input);
+});
+
+function getImage(searchedItem) {
+  let im = document.getElementById('pic');
+  im.setAttribute(
+    'src',
+    ` https://maps.googleapis.com/maps/api/streetview?size=1080x1920&location=${new Number(
+      searchedItem.data.results[0].geometry.location.lat
+    )},${new Number(
+      searchedItem.data.results[0].geometry.location.lng
+    )}&fov=80&heading=70&pitch=0&key=AIzaSyDd1vX46rLVJsuE4NUmZcgp7_m34wwMgHA`
+  );
+  console.log(searchedItem.data.results[0].geometry.location.lat);
+  // https://maps.googleapis.com/maps/api/streetview?size=400x400&location=4.5763831,-122.4211769&fov=80&heading=70&pitch=0&key=AIzaSyDd1vX46rLVJsuE4NUmZcgp7_m34wwMgHA
+}
+document.getElementById('openImg').addEventListener('click', () => {
+  document.getElementById('image').style.visibility = 'visible';
+});
+document.getElementById('close-image').addEventListener('click', () => {
+  document.getElementById('image').style.visibility = 'hidden';
 });
