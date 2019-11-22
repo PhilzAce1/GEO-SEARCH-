@@ -38,7 +38,7 @@ function searchWeather(searchTerm) {
 const init = resultFromServer => {
   // console.log(console.log(document.getElementById('celcius').value))
   document.getElementById('mapping').disabled = false;
-  console.log(resultFromServer);
+  //   console.log(resultFromServer);
   switch (resultFromServer.weather[0].main) {
     case 'Clear':
       document.documentElement.style.setProperty(
@@ -130,7 +130,7 @@ document.getElementById('zipit').addEventListener('focus', () => {
 });
 document.getElementById('search-btn').addEventListener('click', () => {
   let searchTerm = document.getElementById('zipit').value;
-  console.log(searchTerm);
+  //   console.log(searchTerm);
   if (searchTerm) {
     return searchWeather(searchTerm);
   }

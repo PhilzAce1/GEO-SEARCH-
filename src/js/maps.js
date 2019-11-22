@@ -13,11 +13,12 @@ function initMap() {
       }
     })
     .then(res => {
-      console.log(res);
+      // console.log(res);
       getImage(res);
-      maps(res);
+      return maps(res);
     })
     .catch(err => console.error(err));
+
   const maps = searchedItem => {
     lati = new Number(
       searchedItem.data.results[0].geometry.location.lat
