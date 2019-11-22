@@ -13,8 +13,8 @@ function initMap() {
       }
     })
     .then(res => {
-      // return maps(res);
-      return console.log(res.data.results[0].address_components);
+      return maps(res);
+      // return console.log(res.data.results[0].address_components);
     })
     .catch(err => console.error(err));
   const maps = searchedItem => {
@@ -36,13 +36,7 @@ function initMap() {
       }
     };
     console.log(options);
-    var map = new google.maps.Map(document.getElementById('map'), {
-      zoom: 16,
-      center: {
-        lat: 47.3939,
-        lng: -92.3993
-      }
-    });
+    var map = new google.maps.Map(document.getElementById('map'), options);
     var marker = new google.maps.Marker({
       position: options.center,
       icon: iconBase + 'library_maps.png',
