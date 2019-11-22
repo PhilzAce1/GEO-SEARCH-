@@ -13,7 +13,8 @@ function initMap() {
       }
     })
     .then(res => {
-      return maps(res);
+      // return maps(res);
+      return console.log(res.data.results[0].address_components);
     })
     .catch(err => console.error(err));
   const maps = searchedItem => {
@@ -25,6 +26,8 @@ function initMap() {
     ).toFixed(3);
     //
     // map options
+    document.getElementById('postal').innerHTML =
+      searchedItem.data.results[0].address_components[3].long_name;
     var options = {
       zoom: 16,
       center: {
@@ -33,7 +36,13 @@ function initMap() {
       }
     };
     console.log(options);
-    var map = new google.maps.Map(document.getElementById('zipit'), options);
+    var map = new google.maps.Map(document.getElementById('map'), {
+      zoom: 16,
+      center: {
+        lat: 47.3939,
+        lng: -92.3993
+      }
+    });
     var marker = new google.maps.Marker({
       position: options.center,
       icon: iconBase + 'library_maps.png',
