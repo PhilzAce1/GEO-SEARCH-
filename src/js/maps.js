@@ -1,8 +1,8 @@
 var iconBase = 'https://maps.google.com/mapfiles/kml/shapes/';
+var lati;
+var lngi;
 function initMap() {
   var searched;
-  var lati;
-  var lngi;
 
   var location = document.getElementById('zipit').value;
   axios
@@ -15,7 +15,8 @@ function initMap() {
     .then(res => {
       // console.log(res);
       getImage(res);
-      return maps(res);
+      maps(res);
+      return res;
     })
     .catch(err => console.error(err));
 
@@ -26,10 +27,6 @@ function initMap() {
     lngi = new Number(
       searchedItem.data.results[0].geometry.location.lng
     ).toFixed(3);
-    //
-    // map options
-    // document.getElementById('postal').innerHTML =
-    //   searchedItem.data.results[0].address_components[3].long_name;
     var options = {
       zoom: 16,
       center: {
@@ -37,7 +34,8 @@ function initMap() {
         lng: parseFloat(lngi)
       }
     };
-    console.log(options);
+
+    // console.log(options);
     var map = new google.maps.Map(document.getElementById('map'), options);
     var marker = new google.maps.Marker({
       position: options.center,
@@ -70,3 +68,12 @@ document.getElementById('openImg').addEventListener('click', () => {
 document.getElementById('close-image').addEventListener('click', () => {
   document.getElementById('image').style.visibility = 'hidden';
 });
+const takeToNext = () => {
+  console.log('what is going on');
+  return location.assign(
+    `${location.href}/weather.html?lat=${lati}&lon=${lngi}`
+  );
+};
+document
+  .getElementById('shareMap')
+  .addEventListener('click', () => takeToNext());

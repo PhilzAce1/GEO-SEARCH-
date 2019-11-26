@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Simple Map</title>
+    <meta name="viewport" content="initial-scale=1.0" />
+    <meta charset="utf-8" />
+    <meta
+      property="og:url"
+      content="https://philzace1.github.io/GEO-SEARCH-/"
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="GEO-SEARCH" />
+    <meta
+      property="og:description"
+      content="Geo-Search is a tool that allows people to search for places and extract information such as
+    timezone, map and local weather conditions like temperature, wind speed, humidity, and
+    precipitation."
+    />
+    <style>
+      /* Always set the map height explicitly to define the size of the div
+       * element that contains the map. */
+      #map {
+        height: 100%;
+      }
+      /* Optional: Makes the sample page fill the window. */
+      html,
+      body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="fb-root"></div>
+
+    <!-- Your share button code -->
+    <div
+      id="fb"
+      class="fb-share-button"
+      data-href="https://youtube.com/"
+      data-layout="button_count"
+    ></div>
+    <button id="s">Click To share</button>
+    <script>
+      document
+        .getElementById('fb')
+        .setAttribute('data-href', `${location.href}`);
+      console.log(document.getElementById('fb').getAttribute('data-href'));
+      console.log('soemthijng');
+      document.getElementById('s').addEventListener(
+        'click',
+        (function(d, s, id) {
+          var js,
+            fjs = d.getElementsByTagName(s)[0];
+          if (d.getElementById(id)) return;
+          js = d.createElement(s);
+          js.id = id;
+          js.src =
+            'https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.0';
+          fjs.parentNode.insertBefore(js, fjs);
+        })(document, 'script', 'facebook-jssdk')
+      );
+    </script>
+    <div id="map"></div>
+    <script>
+      var iconBase = 'https://maps.google.com/mapfiles/kml/shapes/';
+      const getQueryParams = query =>
+        query
+          .trim()
+          .replace('?', '')
+          .split('&')
+          .reduce((params, str) => {
+            const splitted = str.split('=');
+            params[splitted[0]] = parseFloat(splitted[1]);
+
+            return params;
+          }, {});
+
+      const param = getQueryParams(location.search);
+      var map;
+      function initMap() {
+        document.getElementById('fb').setAttribute('data-href', location.href);
+        const param = getQueryParams(location.search);
+        map = new google.maps.Map(document.getElementById('map'), {
+          center: { lat: param.lat, lng: param.lon },
+          zoom: 16
+        });
+        var marker = new google.maps.Marker({
+          position: { lat: param.lat, lng: param.lon },
+          icon: iconBase + 'library_maps.png',
+          map: map
+        });
+        console.log(location);
+      }
+      window.onload = initMap;
+    </script>
+
+    <script
+      async
+      defer
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDd1vX46rLVJsuE4NUmZcgp7_m34wwMgHA&libraries=places"
+    ></script>
+  </body>
+</html>

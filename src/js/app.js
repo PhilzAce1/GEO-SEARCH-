@@ -2,18 +2,20 @@ window.onload = () => {
   document.getElementById('loaders').style.display = 'none';
 };
 let apiId = '5a929acdfbcb904243f282fc940e1200';
-let units;
+let units = 'metric';
 let lng;
 let lat;
 let name;
 
+const fbb = document.getElementById('fbb');
 //  `document.getElementsByName('mec').value}`;
 let searchMethod = 'q';
-if (document.getElementById('celcius').value) {
-  units = 'metric';
-} else {
-  units = 'imperial';
-}
+// if (document.getElementById('celcius').value) {
+//   units = 'metric';
+// } else {
+//   units = 'imperial';
+// }
+
 function getSearchMethod(searchTerm) {
   if (searchTerm.length === 5 && Number.parseInt + '' === searchTerm) {
     searchMethod = 'zip';
@@ -124,6 +126,10 @@ const init = resultFromServer => {
   displayTemp.innerHTML = Math.floor(resultFromServer.main.temp);
   weather.innerText = des.charAt(0).toUpperCase() + des.slice(1);
   humidity.innerHTML = resultFromServer.main.humidity + '%';
+  // fbb.setAttribute(
+  //   'data-href',
+  //   `https://www.google.com/maps/search/?api=1&query=${resultFromServer.coord.lat},${resultFromServer.coord.lon}`
+  // );
 };
 document.getElementById('zipit').addEventListener('focus', () => {
   document.getElementById('search-btn').disabled = false;
