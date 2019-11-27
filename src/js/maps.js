@@ -71,7 +71,7 @@ document.getElementById('close-image').addEventListener('click', () => {
 const takeToNext = () => {
   console.log('what is going on');
   return location.assign(
-    `${location.href}/weather.html?lat=${lati}&lon=${lngi}`
+    `${location.host}/weather.html?lat=${lati}&lon=${lngi}`
   );
 };
 document

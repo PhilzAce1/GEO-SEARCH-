@@ -4,8 +4,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
- 
-  <!-- <meta property="og:image"         content="https://www.your-domain.com/path/image.jpg" /> -->
+
+    <!-- <meta property="og:image"         content="https://www.your-domain.com/path/image.jpg" /> -->
     <title>Geo Search</title>
     <link
       href="https://fonts.googleapis.com/css?family=Acme|Righteous&display=swap"
@@ -14,25 +14,28 @@
     <link rel="stylesheet" href="src/css/main.css" />
     <link rel="stylesheet" href="src/css/main600.css" />
     <link rel="stylesheet" href="src/css/main400.css" />
-    <link rel="stylesheet" href="src/css/loader.css">
+    <link rel="stylesheet" href="src/css/loader.css" />
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
   </head>
   <body>
     <div id="loaders">
-            <div class="psoload">
-                <div class="straight"></div>
-                <div class="curve"></div>
-                <div class="center"></div>
-                <div class="inner"></div>
-              </div>
-        </div>
-        <div id="iframe">
-        </div>
-  <div id="image">
-    <button id="close-image">Close Image</button>
-    <img id="pic"src="" alt="Image to this Location is currently unavailable ">
-  </div>
+      <div class="psoload">
+        <div class="straight"></div>
+        <div class="curve"></div>
+        <div class="center"></div>
+        <div class="inner"></div>
+      </div>
+    </div>
+    <div id="iframe"></div>
+    <div id="image">
+      <button id="close-image">Close Image</button>
+      <img
+        id="pic"
+        src=""
+        alt="Image to this Location is currently unavailable "
+      />
+    </div>
     <div><button id="close">close</button></div>
     <div id="map"></div>
     <div class="container">
@@ -45,7 +48,7 @@
 
             <div class="location">
               <div class="lac" id="loca">Lagos</div>
-              <div class="date" id="date">Monday 1th somethin</div>
+              <div class="date"style="display:none" id="date">Monday 1th somethin</div>
             </div>
             <div class="icon">
               <div class="w-icon"><img src="" alt="weather" id="w-icon" /></div>
@@ -65,7 +68,6 @@
                 overview
               </button>
               <!-- Your share button code -->
-
             </div>
             <div class="sea">
               <input
@@ -74,24 +76,17 @@
                 id="zipit"
                 placeholder="search for your city"
               />
-              <input type="hidden" name="lat">
-                    <input type="hidden" name="long">
-              <button id="search-btn" disabled onclick="initMap()">Search</button>
+              <input type="hidden" name="lat" />
+              <input type="hidden" name="long" />
+              <button id="search-btn" disabled onclick="initMap()">
+                Search
+              </button>
             </div>
             <br />
             <div class="radio">
               <div>
-                <label for="celcius">Celcius</label>
-                <input type="radio" name="mec" id="celcius" value="metric" />
-              </div>
-              <div>
-                <label for="farenheit"></label>farenheit
-                <input
-                  type="radio"
-                  name="mec"
-                  id="farenheit"
-                  value="imperial"
-                />
+                <button id="converter">Convert  To farenheit</button>
+                <p  style="display: none;"id="check">c</p>
               </div>
             </div>
           </div>
@@ -130,11 +125,10 @@
               </p>
             </div>
             <div>
-                <p class="navigation-link">
-                  Postal Code :<span id="postal"></span>
-                </p>
-              </div>
-   
+              <p class="navigation-link">
+                Postal Code :<span id="postal"></span>
+              </p>
+            </div>
           </div>
         </div>
         <hr />
@@ -142,7 +136,7 @@
           <div class="responsee">
             <!-- <div><p id="buttonMap" class="navigation-link">Check map <span></span></p></div> -->
             <div><button id="mapping" disabled>Check Map</button></div>
-            <div><button id="openImg" >Check Image</button></div>
+            <div><button id="openImg">Check Image</button></div>
 
             <div><button id="close">close</button></div>
 
@@ -156,7 +150,7 @@
     </div>
     <script src="src/js/app.js"></script>
     <script src="src/js/button.js"></script>
-    <script src="src/js/maps.js"> </script>
+    <script src="src/js/maps.js"></script>
     <script
       async
       defer

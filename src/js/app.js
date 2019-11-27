@@ -6,15 +6,10 @@ let units = 'metric';
 let lng;
 let lat;
 let name;
+let degree;
 
 const fbb = document.getElementById('fbb');
-//  `document.getElementsByName('mec').value}`;
 let searchMethod = 'q';
-// if (document.getElementById('celcius').value) {
-//   units = 'metric';
-// } else {
-//   units = 'imperial';
-// }
 
 function getSearchMethod(searchTerm) {
   if (searchTerm.length === 5 && Number.parseInt + '' === searchTerm) {
@@ -124,6 +119,7 @@ const init = resultFromServer => {
   temp.innerHTML = Math.floor(resultFromServer.main.temp) + '&#176';
   windSpeed.innerHTML = Math.floor(resultFromServer.wind.speed) + 'm/s';
   displayTemp.innerHTML = Math.floor(resultFromServer.main.temp);
+  degree = Math.floor(resultFromServer.main.temp);
   weather.innerText = des.charAt(0).toUpperCase() + des.slice(1);
   humidity.innerHTML = resultFromServer.main.humidity + '%';
   // fbb.setAttribute(
@@ -139,5 +135,40 @@ document.getElementById('search-btn').addEventListener('click', () => {
   //   console.log(searchTerm);
   if (searchTerm) {
     return searchWeather(searchTerm);
+  }
+});
+let displayTemp = document.getElementById('temp');
+let temp = document.getElementById('handleTemp');
+
+function cToF(celsius) {
+  var cTemp = celsius;
+  var cToFahr = (cTemp * 9) / 5 + 32;
+  var message = cToFahr.toFixed(2) + ' \xB0F.';
+  console.log(message);
+  displayTemp.innerHTML = message;
+  temp.innerHTML = message;
+  document.getElementById('check').innerHTML = 'f';
+  document.getElementById('converter').innerHTML = 'Convert To celcius';
+  degree = cToFahr.toFixed(2);
+  console.log(degree);
+}
+
+function fToC(fahrenheit) {
+  var fTemp = fahrenheit;
+  var fToCel = ((fTemp - 32) * 5) / 9;
+  var message = fToCel.toFixed(2) + '\xB0C.';
+  console.log(message);
+  displayTemp.innerHTML = message;
+  temp.innerHTML = message;
+  document.getElementById('check').innerHTML = 'c';
+  document.getElementById('converter').innerHTML = 'Convert To Faranhiet';
+  degree = fToCel.toFixed(2);
+  console.log(degree);
+}
+document.getElementById('converter').addEventListener('click', () => {
+  if (document.getElementById('check').innerHTML == 'c') {
+    return cToF(degree);
+  } else if (document.getElementById('check').innerHTML == 'f') {
+    return fToC(degree);
   }
 });
