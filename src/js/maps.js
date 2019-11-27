@@ -70,7 +70,7 @@ document.getElementById('close-image').addEventListener('click', () => {
 });
 const takeToNext = () => {
   console.log('what is going on');
-  return (location.href = `../weather.html?lat=${lati}&lon=${lngi}`);
+  return (location.href = `/GEO-SEARCH-/weather.html?lat=${lati}&lon=${lngi}`);
 };
 document
   .getElementById('shareMap')
