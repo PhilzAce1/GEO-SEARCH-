@@ -11,21 +11,21 @@
       href="https://fonts.googleapis.com/css?family=Acme|Righteous&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="src/css/main.css" />
-    <link rel="stylesheet" href="src/css/main600.css" />
-    <link rel="stylesheet" href="src/css/main400.css" />
+    <!-- <link rel="stylesheet" href="src/css/main.css" /> -->
+    <!-- <link rel="stylesheet" href="src/css/main600.css" /> -->
+    <!-- <link rel="stylesheet" href="src/css/main400.css" /> -->
     <link rel="stylesheet" href="src/css/loader.css" />
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
   </head>
   <body>
-    <div id="loaders">
+    <!-- <div id="loaders">
       <div class="psoload">
         <div class="straight"></div>
         <div class="curve"></div>
         <div class="center"></div>
         <div class="inner"></div>
-      </div>
+      </div> -->
     </div>
     <div id="iframe"></div>
     <div id="image">
@@ -48,10 +48,12 @@
 
             <div class="location">
               <div class="lac" id="loca">Lagos</div>
-              <div class="date"style="display:none" id="date">Monday 1th somethin</div>
+              <div class="date" id="date">
+                Monday 1th 2019
+              </div>
             </div>
             <div class="icon">
-              <div class="w-icon"><img src="" alt="weather" id="w-icon" /></div>
+              <div class="w-icon" id="w-icon"></div>
               <div class="w-text" id="w-text">Rainy</div>
             </div>
           </div>
@@ -60,13 +62,14 @@
         </div>
       </div>
       <div class="info">
+        <div class="brand hide">GEO SEARCH</div>
+
         <div class="info-1">
           <div class="content-search" id="search">
             <div class="ove">
-              <button id="shareMap">shareMap</button>
-              <button class="overview">
+              <!-- <button class="overview">
                 overview
-              </button>
+              </button> -->
               <!-- Your share button code -->
             </div>
             <div class="sea">
@@ -85,8 +88,8 @@
             <br />
             <div class="radio">
               <div>
-                <button id="converter">Convert  To farenheit</button>
-                <p  style="display: none;"id="check">c</p>
+                <button id="converter">Convert To farenheit</button>
+                <p style="display: none;" id="check">c</p>
               </div>
             </div>
           </div>
@@ -137,6 +140,8 @@
             <!-- <div><p id="buttonMap" class="navigation-link">Check map <span></span></p></div> -->
             <div><button id="mapping" disabled>Check Map</button></div>
             <div><button id="openImg">Check Image</button></div>
+
+            <button id="shareMap">shareMap</button>
 
             <div><button id="close">close</button></div>
 

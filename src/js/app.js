@@ -24,32 +24,29 @@ function searchWeather(searchTerm) {
   fetch(
     `https://api.openweathermap.org/data/2.5/weather?${searchMethod}=${searchTerm}&APPID=${apiId}&units=${units}`
   )
-    .then(result => {
+    .then((result) => {
       return result.json();
     })
-    .then(result => {
+    .then((result) => {
       return init(result);
     });
 }
-// q=London,uk&callback=test
-const init = resultFromServer => {
-  // console.log(console.log(document.getElementById('celcius').value))
+const init = (resultFromServer) => {
   document.getElementById('mapping').disabled = false;
-  //   console.log(resultFromServer);
   switch (resultFromServer.weather[0].main) {
     case 'Clear':
       document.documentElement.style.setProperty(
         '--bgi',
         "url('../image/cloud.jpg')"
       );
-      break;
+      document.documentElement.style.setProperty('--primarytextcolor', 'black');
+
     case 'Clouds':
       document.documentElement.style.setProperty(
         '--bgi',
         "url('../image/cloudy.jpg')"
       );
-      document.documentElement.style.color = 'black';
-      document.getElementsByTagName('p');
+      document.documentElement.style.setProperty('--primarytextcolor', 'black');
 
       break;
 
@@ -60,7 +57,7 @@ const init = resultFromServer => {
         '--bgi',
         "url('../image/rain.jpg')"
       );
-      document.documentElement.style.color = 'white';
+      document.documentElement.style.setProperty('--primarytextcolor', 'white');
 
       break;
     case 'Thunderstorm':
@@ -68,14 +65,15 @@ const init = resultFromServer => {
         '--bgi',
         "url('../image/thunder.jpg')"
       );
-      document.documentElement.style.color = 'white';
+      document.documentElement.style.setProperty('--primarytextcolor', 'white');
+
       break;
     case 'Snow':
       document.documentElement.style.setProperty(
         '--bgi',
         "url('../image/snow.jpg')"
       );
-      document.documentElement.style.color = 'black';
+      document.documentElement.style.setProperty('--primarytextcolor', 'black');
 
       break;
     case 'Fog':
@@ -83,6 +81,7 @@ const init = resultFromServer => {
         '--bgi',
         "url('../image/fog2.jpg')"
       );
+      document.documentElement.style.setProperty('--primarytextcolor', 'white');
 
       break;
     default:
@@ -109,11 +108,13 @@ const init = resultFromServer => {
   var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
   var yyyy = today.getFullYear();
 
-  datee.innerText = mm / dd / yyyy;
-  icon.src =
+  // datee.innerText = mm / dd / yyyy;
+  const src =
     'https://openweathermap.org/img/w/' +
     resultFromServer.weather[0].icon +
     '.png';
+  icon.innerHTML = `<img src=${src} alt="wether icon"/>`;
+
   let des = resultFromServer.weather[0].description;
   wText.innerText = des.charAt(0).toUpperCase() + des.slice(1);
   temp.innerHTML = Math.floor(resultFromServer.main.temp) + '&#176';

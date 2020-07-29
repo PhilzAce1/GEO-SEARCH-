@@ -5,15 +5,19 @@ function initMap() {
   var searched;
 
   var location = document.getElementById('zipit').value;
-  axios
-    .get('https://maps.googleapis.com/maps/api/geocode/json', {
-      params: {
-        address: location,
-        key: 'AIzaSyBYGTJio78JOAqEhbKu8Sj2geI4iYk_7wU'
-      }
-    })
+    axios
+      .get('https://maps.googleapis.com/maps/api/geocode/json', {
+        params: {
+          address: location,
+          key: 'AIzaSyBYGTJio78JOAqEhbKu8Sj2geI4iYk_7wU'
+        }
+      })
+    // fetch(
+    //   `https://maps.googleapis.com/maps/api/geocode/json?address=lagos&key=AIzaSyBYGTJio78JOAqEhbKu8Sj2geI4iYk_7wU`
+    //   // { method: 'GET' }
+    // )
     .then(res => {
-      // console.log(res);
+      console.log(res);
       getImage(res);
       maps(res);
       return res;
